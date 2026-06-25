@@ -1,0 +1,14 @@
+torch==2.2.0
+mlflow==3.13.0
+numpy==1.26.4
+pandas
+scikit-learn
+dvc
+dvc-s3
+fastapi
+uvicorn
+python-dotenv
+httpx
+pydantic
+python-multipart
+pytest>=7.0.0

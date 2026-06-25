@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./models:/app/models
+      - ./app.db:/app/app.db
+    environment:
+      - PREDICTION_DB_PATH=/app/app.db
+      - API_KEY=${API_KEY}
+      - DAGSHUB_USERNAME=${DAGSHUB_USERNAME}
+      - DAGSHUB_TOKEN=${DAGSHUB_TOKEN}
+      - DAGSHUB_REPO_NAME=${DAGSHUB_REPO_NAME}
+      - MLFLOW_TRACKING_URI=${MLFLOW_TRACKING_URI}
+    env_file:
+      - .env
+    command: ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
